@@ -2,7 +2,7 @@
 
 **Link:** [Paper](https://arxiv.org/abs/2305.04091)
 
-**Authors:** Lei Wang[^1], Wanyu Xu[^2], Yihuai Lan[^3], Zhiqiang Hu[^3], Yunshi Lan[^4], Roy Ka-Wei Lee[^3], Ee-Peng Lim[^1]
+**Authors:** Lei Wang[^1], Wanyu Xu[^2], Yihuai Lan, Zhiqiang Hu[^3], Yunshi Lan[^4], Roy Ka-Wei Lee[^3], Ee-Peng Lim[^1]
 
 [^1]: Singapore Management University
 [^2]: Southwest Jiaotong University

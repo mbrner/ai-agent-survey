@@ -1,7 +1,8 @@
 # Toolformer: Language Models Can Teach Themselves to Use Tools
 
-**Link: [Toolformer: Language Models Can Teach Themselves to Use Tools](https://arxiv.org/abs/2302.04761)**
-**Authors: Timo Schick[^1], Jane Dwivedi-Yu[^1], Roberto Dessì[^2], Roberta Raileanu[^1], Maria Lomeli[^1], Luke Zettlemoyer[^1], Nicola Cancedda[^1], Thomas Scialom[^1]**
+**Link**: [Paper](https://arxiv.org/abs/2302.04761)
+
+**Authors**: Timo Schick[^1], Jane Dwivedi-Yu[^1], Roberto Dessì[^2], Roberta Raileanu[^1], Maria Lomeli[^1], Luke Zettlemoyer[^1], Nicola Cancedda[^1], Thomas Scialom[^1]
 
 [^1]: Meta AI
 [^2]: Universitat Pompeu Fabra

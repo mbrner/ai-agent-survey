@@ -41,5 +41,17 @@ All the information from the previous three stages (task planning, model selecti
 
 ### Results
 
+Experiments were conducted using `gpt-3.5-turbo`, `Vicunia-7B` and `Alpaca-7B`.
+
+Task planning is the first but also the most important step in the whole workflow, since it directly determines the result of the subsequent pipeline. Therefore, the authors deem that task planning provides a reliable metric for evaluating the ability of LLMs. To better conduct evaluations on task planning, they group tasks into three distinct categories:
+- **Single Task** refers to a request that involves only one task. We consider the planning to be correct when and only when the task name (i.e., "task") and the predicted label are identically equal. F1 and accuracy are chosen as evaluation metrics for single-task scenarios.
+- **Sequential Task** represents that the intent of the user request can be decomposed as a sequence of multiple sub-tasks. Here,  F1 and normalized Edit Distance as the metrics are used.
+- **Graph Task** indicates that user requests can be decomposed into directed acyclic graphs. Considering the possibility of multiple planning topologies within graph tasks, only using F1-score is not enough to reflect the LLM capability in planning. To address this, following employed GPT-4 as a critic to evaluate whether the planning is correct. The accuracy is obtained by evaluating the judgment of GPT-4, referred to as the GPT-4 Score.
+
+To conduct the evaluation, some annotators were invited to submit some requests. They used GPT-4 to generate task planning as the pseudo labels, which cover single, sequential, and graph tasks. Furthermore, some expert annotators labeled task planning for some complex requests (46 examples) as a high-quality human annotated dataset. 
+
+![HuggingfaceGPT](./images/results.png)
+
 ### Conclusion
 
+In conclusion, HuggingGPT represents a promising approach to harness the power of LLMs in managing and integrating various AI models to solve complex tasks with various modalities.

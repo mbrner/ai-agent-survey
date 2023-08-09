@@ -3,6 +3,7 @@
 # Tree of Thoughts: Deliberate Problem Solving with Large Language Models
 
 **Link**: [Paper](http://arxiv.org/pdf/2305.10601v1)
+
 **Authors**: Shunyu Yao, Dian Yu, Jeffrey Zhao, Izhak Shafran, Thomas L. Griffiths, Yuan Cao, Karthik Narasimhan
 
 ## Summary

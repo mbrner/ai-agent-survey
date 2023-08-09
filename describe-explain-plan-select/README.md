@@ -3,6 +3,7 @@
 # Describe, Explain, Plan and Select: Interactive Planning with Large Language Models Enables Open-World Multi-Task Agents
 
 **Link**: [Paper](http://arxiv.org/pdf/2302.01560v1)
+
 **Authors**: Zihao Wang, Shaofei Cai, Anji Liu, Xiaojian Ma, Yitao Liang
 
 ## Summary

@@ -3,6 +3,7 @@
 # Voyager: An Open-Ended Embodied Agent with Large Language Models
 
 **Link**: [Paper](http://arxiv.org/pdf/2305.16291v1)
+
 **Authors**: Guanzhi Wang, Yuqi Xie, Yunfan Jiang, Ajay Mandlekar, Chaowei Xiao, Yuke Zhu, Linxi Fan, Anima Anandkumar
 
 ## Summary

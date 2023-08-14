@@ -1,14 +1,16 @@
-<!--- Created using: gpt-4 --->
-<!--- Reviewed: False --->
 # AgentBench: Evaluating LLMs as Agents
 
 **Link**:
 - Paper: [Arxiv](http://arxiv.org/pdf/2308.03688v1)
 - Code: [Github](https://github.com/thudm/agentbench)
+- Leaderboard: [Website](https://llmbench.ai/)
 
 
+**Authors**: Xiao Liu[^1], Hao Yu[^1], Hanchen Zhang[^1], Yifan Xu[^1], Xuanyu Lei[^1], Hanyu Lai[^1], Yu Gu[^2], Hangliang Ding[^1], Kaiwen Men[^1], Kejuan Yang[^1], Shudan Zhang[^1], Xiang Deng[^2], Aohan Zeng[^1], Zhengxiao Du[^1], Chenhui Zhang[^1], Sheng Shen[^3], Tianjun Zhang[^3], Yu Su[^2], Huan Sun[^2], Minlie Huang[^1], Yuxiao Dong[^1], Jie Tang[^1]
 
-**Authors**: Xiao Liu, Hao Yu, Hanchen Zhang, Yifan Xu, Xuanyu Lei, Hanyu Lai, Yu Gu, Hangliang Ding, Kaiwen Men, Kejuan Yang, Shudan Zhang, Xiang Deng, Aohan Zeng, Zhengxiao Du, Chenhui Zhang, Sheng Shen, Tianjun Zhang, Yu Su, Huan Sun, Minlie Huang, Yuxiao Dong, Jie Tang
+[^1]: Tsinghua University
+[^2]: The Ohio State University
+[^3]: UC Berkeley
 
 ## Summary
 

@@ -4,7 +4,12 @@
 
 **Link**: [Paper](http://arxiv.org/pdf/2308.00675v1)
 
-**Authors**: Cheng-Yu Hsieh, Si-An Chen, Chun-Liang Li, Yasuhisa Fujii, Alexander Ratner, Chen-Yu Lee, Ranjay Krishna, Tomas Pfister
+**Authors**: Cheng-Yu Hsieh[^1], Si-An Chen[^2], Chun-Liang Li[^3], Yasuhisa Fujii[^4], Alexander Ratner[^1], Chen-Yu Lee[^3], Ranjay Krishna[^1], Tomas Pfister[^3]
+
+[^1]: University of Washington
+[^2]: National Taiwan University
+[^3]: Google Cloud AI Research
+[^4]: Google Research
 
 ## Summary
 

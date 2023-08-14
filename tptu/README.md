@@ -26,16 +26,24 @@ The authors argue that an AI Agents needs 5 basic abilities:
 
 In the eye of the authors task planning and tool usage (TPTU) represent the cornerstone of LLM’s abilities. Others like perception, learning/reflection/memory, and summarization are indeed critical, but they primarily serve to enhance and support these two core competencies.
 
-They propose to differ between two types of TPTU agents: **O**ne-step **A**gents (TPTU-OA) and **S**equential **A**gents (TPTU-SA). While TPTU-OAs generate a plan upfront that is executed without adjustments, TPTU-SAs tackle the current sub-task at hand. Upon successful resolution of the ongoing sub-task, these agents generate start working on the succeeding sub-task.
+They propose to differ between two types of **TPTU** agents: **O**ne-step **A**gents (**TPTU-OA**) and **S**equential **A**gents (**TPTU-SA**). While TPTU-OAs generate a plan upfront that is executed without adjustments, TPTU-SAs tackle the current sub-task at hand. Upon successful resolution of the ongoing sub-task, these agents generate start working on the succeeding sub-task.
 
 ### Results
 
-The authors create TPTU-OAs and TPTU-SA based on their proposed LLM-based AI Agent framework with different LLMs and evaluate their performance on typical tasks.
+The authors create TPTU-OAs and TPTU-SA based on their proposed LLM-based AI Agent framework with different LLMs and evaluate their performance on typical tasks. 
 
-The evaluation results showed a marked improvement when the tool-subtask pairs are generated in a unified format compared to a separate generation of tools and subtasks. 
+![TPTU Models evaluated](./images/tptu-models.png)
 
-In the evaluation of end-to-end ability of multiple tools, ChatGPT achieved a performance rate of 50% in the TPTU-OA evaluation, significantly outperforming the other models, with InternLM at 15%, while both Ziya and Chinese-Alpaca did not manage to complete any tasks successfully, resulting in a score of 0%. In the TPTU-SA evaluation, ChatGPT maintained its leading position, with a slightly improved performance rate of 55%. InternLM also exhibited better performance, achieving a score of 20%, whereas Ziya and Chinese-Alpaca-Plus again failed to register any successful task completion.
+Tools available to the models are: SQL generator, Python generator, Weather query tool, Image generator, Text extractor, Translator, Bing Searcher, Shell generator, Java generator, Wikipedia searcher, Office software, and Movie player.
+
+![TP Results](./images/tptu-tp-results.png)
+
+For task planning reasonable performance was only achieved with the biggest models (ChatGPT, Claude, InternLM). For these models the performance was slightly better for TPTU-SAs in comparison to TPTU-OAs. 
+
+![TP Results](./images/tptu-tu-results.png)
+
+When evaluating the end-to-end capability with multiple tools, ChatGPT maintained its leading position in both the TPTU-OA and TPTU-SA cases. For all models, TPTU-SA again outperformed TPTU-OA. Claude and ChatGLM were excluded due to interface issues; Ziya and Chinese-Alpaca-Plus were unable to solve any of the tasks. So, only ChatGPT and InternLM achieved evaluation results >0%. 
 
 ### Conclusion
 
-The study introduces a structured framework designed for LLM-based AI Agents, emphasizing their abilities in task planning and tool usage. The framework, along with the design of two distinct types of agents for the inference process, allows for a comprehensive evaluation of the capabilities of current open-source LLMs, providing critical insights into their effectiveness. The research underscores the significant potential of LLMs in managing complex tasks and their promising prospects for future research and development. The study also highlights the importance of tailoring evaluation and training methodologies to the individual strengths and weaknesses of each model.
+The study introduces a structured framework designed for LLM-based AI Agents, emphasizing their abilities in task planning and tool usage. The framework, along with the design of two distinct types of agents for the inference process, allows for a comprehensive evaluation of the capabilities of current open-source LLMs, providing critical insights into their effectiveness. At the time of the study, only the largest models were able to perform any part of the tasks in evaluation, with ChatGPT performing best on all benchmarks by a significant margin. In all benchmarks the TPTU-SAs performed better that the TPTU-OAs. The research underscores the significant potential of LLMs in managing complex tasks and their promising prospects for future research and development. The study also highlights the importance of tailoring evaluation and training methodologies to the individual strengths and weaknesses of each model.

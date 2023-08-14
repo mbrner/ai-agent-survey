@@ -2,7 +2,11 @@
 <!--- Reviewed: False --->
 # AgentBench: Evaluating LLMs as Agents
 
-**Link**: [Paper](http://arxiv.org/pdf/2308.03688v1)
+**Link**:
+- Paper: [Arxiv](http://arxiv.org/pdf/2308.03688v1)
+- Code: [Github](https://github.com/thudm/agentbench)
+
+
 
 **Authors**: Xiao Liu, Hao Yu, Hanchen Zhang, Yifan Xu, Xuanyu Lei, Hanyu Lai, Yu Gu, Hangliang Ding, Kaiwen Men, Kejuan Yang, Shudan Zhang, Xiang Deng, Aohan Zeng, Zhengxiao Du, Chenhui Zhang, Sheng Shen, Tianjun Zhang, Yu Su, Huan Sun, Minlie Huang, Yuxiao Dong, Jie Tang
 

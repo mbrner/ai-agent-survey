@@ -14,14 +14,49 @@
 
 ## Summary
 
-**TL;DR: This paper introduces AgentBench, a comprehensive benchmark for evaluating Large Language Models (LLMs) as agents across diverse real-world tasks, revealing a significant performance gap between top-tier and open-source models, and providing a toolkit for future research and development in the field.**
+**TL;DR: This paper introduces AgentBench, a comprehensive benchmark for evaluating Large Language Models (LLMs) as agents across 8 diverse real-world tasks, revealing a significant performance gap between top-tier and open-source models, and providing a toolkit for future research and development in the field.**
+
+![AgentBench Overview](./images/agent-bench-overview.png)
 
 Large Language Models (LLMs) such as GPT-4 have shown impressive abilities in understanding human intent and executing instructions, leading to the development of applications like AutoGPT, BabyAGI, and AgentGPT. However, the absence of a systematic and standard benchmark to evaluate LLM-as-Agent presents a significant challenge. This paper introduces AgentBench, a multi-dimensional evolving benchmark that currently includes 8 distinct environments to assess the reasoning and decision-making abilities of LLM-as-Agent in a multi-turn open-ended generation setting. These environments include a simulated online shopping environment, Webshop, which tests the agent's ability to search, view, and choose items on a real e-commerce website. While games have been used as simulated environments for intelligent agent development, this paper focuses on text-based games, specifically a digital card game, as an ideal option for text-only LLM evaluation.
 
 ### Approach
 
-AgentBench is the first systematic benchmark to evaluate LLM-as-Agent across a wide array of real-world challenges and 8 distinct environments. These environments include tasks such as lateral thinking puzzles, household web browsing, operating system tasks, and database interactions. A significant addition is the ALFWorld benchmark, which mimics household scenarios and requires the agent to break down complex high-level targets into a sequence of straightforward actions. The agent receives environment feedback after each step, allowing it to adapt the plan dynamically. The benchmark also includes a digital card game (DCG) environment, adapted from a simplified DCG system—Aquawar—from the 2021 Tsinghua University Agent Competition. In Aquawar, the agent acts as a player managing a team of fishes with different talents to battle against another team in a turn-based form, testing the model's understanding of game rules, operating logic, and strategic decision-making abilities. The game rules are simplified and include four types of pet fish, each with unique active and passive skills. The Webshop environment simulates an online shopping experience, with the agent interacting with a database of about a million products scraped from amazon.com. The evaluation setup employs a 1-shot evaluation setting, with the model's output assessed using the BLEU metric for similarity to valid action options. The evaluation process is divided into two parts: Initialization, where the task is described to the model along with a successful example, and Interaction, where the model generates thoughts and actions based on feedback and environment information. The Webshop environment also includes a reward function that maps the similarity of the attributes of the expected and actual bought product to a number between 0 and 1. The AgentBench design carefully balances evaluation comprehensiveness and efficiency, and the toolkit is designed to interact only with APIs, simplifying the process for LLMs that want to test on AgentBench.
+Since LLM-as-Agent requires LLMs’ strong reasoning ability, Chain-of-Thought (CoT), which has been considered a de facto strategy in related evaluation together with actions, is also adopted in AgentBench. Despite many improved strategies were introduced, the authors evaluate LLMs with the most primitive CoT in AgentBench, as it reflects the most practical public user experience without multiple trails and repeated generation.
+
+![AgentBench Environments](./images/agent-bench-envs.png)
+
+- a) **Operating System (OS)**: Evaluation of LLMs in genuine OS’ interactive bash environments on human questions with deterministic answers or series of operations for practical goals
+  - _Example consists of_: an instruction, a Docker environment, initialization and start scripts (optional), checking pipeline to verify correctness of the agent's answer/operation, and an example script (optional).
+  - _Tasks_: Question Answering and operation
+  - _Size_: 144 
+  - _Metrics_: Success Rate
+- b) **Database (DB)**:  Examine LLMs’ abilities to operate on real databases via SQL
+  - _Example consists of_: an instruction, table info, table content, a correct answer
+  - _Tasks_: Select, insert, or update queries
+  - _Size_: 60
+  - _Metrics_: Success Rate
+- c) **Knowledge Graph (KG)**:  In the context of engaging with a knowledge graph, the intelligent agent must demonstrate proficiency in comprehending intricate natural language, deconstructing intricate tasks into manageable steps, formulating strategic plans, and adapting flexibly as required. This task is characterized by a partially observable environment. All KG examples are constructed for the FREEBASE knowledge graph.
+  - _Example consists of_: an input question, topic entities, action sequence, gold answers
+  - _Tasks_: Select, insert, or update queries
+  - _Size_: 500
+  - _Metrics_: F1 score (predicted answers compared with gold answers), Exact Match (set of predicted answer exactly equal to gold answers), Executability (1 if the action sequence produces an answer)
+- d) **Digital Card Game (DCG)**:  In the context of engaging with a knowledge graph, the intelligent agent must demonstrate proficiency in comprehending intricate natural language, deconstructing intricate tasks into manageable steps, formulating strategic plans, and adapting flexibly as required. This task is characterized by a partially observable environment. All KG examples are constructed for the FREEBASE knowledge graph.
+  - _Example consists of_: an input question, topic entities, action sequence, gold answers
+  - _Tasks_: Select, insert, or update queries
+  - _Size_: 500
+  - _Metrics_: F1 score (predicted answers compared with gold answers), Exact Match (set of predicted answer exactly equal to gold answers), Executability (1 if the action sequence produces an answer)
+- e)
+- f)
+- g)
+- h)
+
+
+AgentBench is the first systematic benchmark to evaluate LLM-as-Agent across a wide array of real-world challenges and 8 distinct environments. A significant addition is the ALFWorld benchmark, which mimics household scenarios and requires the agent to break down complex high-level targets into a sequence of straightforward actions. The agent receives environment feedback after each step, allowing it to adapt the plan dynamically. The benchmark also includes a digital card game (DCG) environment, adapted from a simplified DCG system—Aquawar—from the 2021 Tsinghua University Agent Competition. In Aquawar, the agent acts as a player managing a team of fishes with different talents to battle against another team in a turn-based form, testing the model's understanding of game rules, operating logic, and strategic decision-making abilities. The game rules are simplified and include four types of pet fish, each with unique active and passive skills. The Webshop environment simulates an online shopping experience, with the agent interacting with a database of about a million products scraped from amazon.com. The evaluation setup employs a 1-shot evaluation setting, with the model's output assessed using the BLEU metric for similarity to valid action options. The evaluation process is divided into two parts: Initialization, where the task is described to the model along with a successful example, and Interaction, where the model generates thoughts and actions based on feedback and environment information. The Webshop environment also includes a reward function that maps the similarity of the attributes of the expected and actual bought product to a number between 0 and 1. The AgentBench design carefully balances evaluation comprehensiveness and efficiency, and the toolkit is designed to interact only with APIs, simplifying the process for LLMs that want to test on AgentBench.
+
 ### Results
+
+![AgentBench Overview](./images/agent-bench-models.png)
 
 The study extensively tests over 25 LLMs (including APIs and open-sourced models) and finds a significant disparity in performance between top commercial LLMs and open-sourced competitors. Top-tier models like GPT-4 are capable of handling a wide array of real-world tasks, including the digital card game environment and the Webshop online shopping simulation, indicating the potential for developing a potent, continuously learning agent. However, there is a significant performance gap between these top-tier models and their open-source counterparts. The performance of open-source LLMs on AgentBench tasks lags considerably, underscoring the need for additional efforts to enhance the learning abilities of open-source LLMs. The overall success rate, defined as the number of tasks successfully completed by the model divided by the total number of tasks, is used as a measure of model performance. The evaluation also includes metrics such as Element Accuracy, Action F1, and Step Success Rate. The latter is reported as the main metric due to the current struggles for LLMs to ensure overall task success rates. The overall score is calculated by averaging the scores of each task across all the models, scaling them to an average of 1. This method ensures fairness and consistency in evaluation, enabling easier comparisons and analysis in future research.
 ## Conclusion

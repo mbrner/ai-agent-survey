@@ -23,7 +23,3 @@ Experiments conducted on 71 tasks in Minecraft demonstrate that DEPS is the firs
 ### Conclusion
 
 The research highlights the challenges of planning in open-ended environments like Minecraft and presents a novel approach to address them. The DEPS method, based on Large Language Models, shows significant improvements in task completion, paving the way for the development of more advanced artificial intelligence. The contributions of this research are twofold: the proposal of the DEPS method and the demonstration of its effectiveness in improving task completion rates. The Selector component of DEPS, particularly the horizon-predictive Selector, plays a crucial role in this success. The DEPS planner is zero-shot, allowing it to generalize to other long-horizon open worlds, setting it apart from previous efforts that focused on improving the low-level controller. However, the approach has limitations, including reliance on privately-held LLMs and the explicit planning in the system, which can prevent the model from being further scaled up. Future work will explore using open-sourced models and integrating the planning within an end-to-end trainable goal-conditioned policy.
-
-## Implications/Learnings for GPT4Hana
-
-...

@@ -28,7 +28,3 @@ The proposed approach was evaluated on 10 reasoning datasets from 4 diverse doma
 ### Conclusion
 
 The Faithful CoT framework offers a more reliable and interpretable method for complex reasoning tasks, addressing the lack of faithfulness in existing CoT methods. This approach not only enhances performance but also improves the interpretability of the model's predictions, reducing the risk of over-trust in high-stake applications. The reasoning chain interleaves user-understandable natural language comments and executable symbolic language programs, thus providing interpretability of how the model arrives at the answer. The approach's generalizability to multiple symbolic languages and domains, and its structured interweaving of natural and symbolic language, distinguishes it from concurrent works. However, the performance on StrategyQA indicates room for improvement, particularly with further pretraining on Datalog. Despite these advancements, the Translation stage remains opaque, posing questions about potential improvements in its faithfulness. Future work should explore the use of the natural language comments in the reasoning chain as an interface for non-programming users to interactively debug the model, and conduct a human evaluation on the correctness of the generated reasoning chains.
-
-## Implications/Learnings for GPT4Hana
-
-...

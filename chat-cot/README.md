@@ -23,7 +23,3 @@ ChatCoT's effectiveness was demonstrated through experiments on two complex reas
 ### Conclusion
 
 ChatCoT significantly improves the reasoning abilities of LLMs, particularly in complex tasks requiring specific knowledge and multi-hop reasoning. It offers a more unified way to integrate CoT reasoning and tool manipulation, enhancing the continuity of the reasoning process. The tool's code and data are publicly available for further research and development. It is a general framework that can be applied to a variety of complex reasoning tasks that require suitable tools. However, it is important to note that directly utilizing external tools during reasoning can harm performance by disrupting the continuity of reasoning and causing confusion about the reasoning step. Despite this, the computational expense of ChatCoT is not significantly larger than existing methods, making it a viable option for complex reasoning tasks. Future work will test the effectiveness of the proposed approach to more types of reasoning tasks and consider extending the number of available tools for solving different tasks.
-
-## Implications/Learnings for GPT4Hana
-
-...

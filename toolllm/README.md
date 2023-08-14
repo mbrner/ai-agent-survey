@@ -1,6 +1,8 @@
 # ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs
 
-**Link**: [Paper](http://arxiv.org/pdf/2307.16789v1)
+**Links**:
+- Paper: [Arxiv](http://arxiv.org/pdf/2307.16789v1)
+- Code: [GitHub](https://github.com/openbmb/toolbench)
 
 **Authors**: Yujia Qin[^1], Shihao Liang[^1][^2], Yining Ye[^1], Kunlun Zhu[^1][^2], Lan Yan[^1][^2], Yaxi Lu[^1], Yankai Lin[^3], Xin Cong[^1], Xiangru Tang[^4], Bill Qian[^4], Sihan Zhao[^1], Runchu Tian[^1], Ruobing Xie[^5], Jie Zhou[^2], Mark Gerstein[^4], Dahai Li[^2][^6], Zhiyuan Liu[^1], Maosong Sun[^1]
 

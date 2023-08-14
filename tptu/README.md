@@ -26,7 +26,7 @@ The authors argue that an AI Agents needs 5 basic abilities:
 
 In the eye of the authors task planning and tool usage (TPTU) represent the cornerstone of LLM’s abilities. Others like perception, learning/reflection/memory, and summarization are indeed critical, but they primarily serve to enhance and support these two core competencies.
 
-They propose to differ between two types of TPTU agents: **O**ne-step **A**gents (TPTU-OA) and **S**equential **A**gents (TPTU-SA). While TPTU-OAs generate a plan upfront that is executed without adjustments, TPTU-SAs tackle the current sub-task at hand. Upon successful resolution of the ongoing sub-task, these agents generate start working on the succeeding sub-task.
+They propose to differ between two types of **TPTU** agents: **O**ne-step **A**gents (**TPTU-OA**) and **S**equential **A**gents (**TPTU-SA**). While TPTU-OAs generate a plan upfront that is executed without adjustments, TPTU-SAs tackle the current sub-task at hand. Upon successful resolution of the ongoing sub-task, these agents generate start working on the succeeding sub-task.
 
 ### Results
 

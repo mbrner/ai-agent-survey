@@ -1,4 +1,4 @@
-![image](https://github.com/mbrner/ai-agent-survey/assets/12487634/2a4571c2-4ea9-450b-984b-da13a224002a)# TPTU: Task Planning and Tool Usage of Large Language Model-based AI Agents
+# TPTU: Task Planning and Tool Usage of Large Language Model-based AI Agents
 
 **Link**: [Paper](http://arxiv.org/pdf/2308.03427v1)
 

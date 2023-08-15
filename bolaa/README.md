@@ -7,7 +7,6 @@
 
 **Link**:
 - Paper: [Arxiv](http://arxiv.org/pdf/2308.05960v1)
-- Code: N/A
 
 **Authors**: Zhiwei Liu[^1], Weiran Yao[^1], Jianguo Zhang[^1], Le Xue[^1], Shelby Heinecke[^1], Rithesh Murthy[^1], Yihao Feng[^1], Zeyuan Chen[^1], Juan Carlos Niebles[^1], Devansh Arpit[^1], Ran Xu[^1], Phil Mui[^2], Huan Wang[^1], Caiming Xiong[^1], Silvio Savarese[^1]
 
@@ -16,13 +15,33 @@
 
 ## Summary
 
-**TL;DR: The paper explores Large Language Model-augmented Autonomous Agents (LAAs), introducing a novel strategy (BOLAA) for managing multiple LAAs, and demonstrates that the BOLAA architecture outperforms others in complex tasks, with the best performance observed with Llama-2-70b, suggesting the potential of fine-tuning multiple smaller-sized specialised LAAs and the importance of pairing the LLM with the optimal LAA architecture.**
+**TL;DR: The paper explores LLM-augmented Autonomous Agents (LAAs), introducing a novel strategy (BOLAA) for managing multiple LAAs, and demonstrates that the BOLAA architecture outperforms others in complex tasks, with the best performance observed with Llama-2-70b, suggesting the potential of fine-tuning multiple smaller-sized specialised LAAs and the importance of pairing the LLM with the optimal LAA architecture.**
 
-The paper systematically investigates Large Language Model-augmented Autonomous Agents (LAAs), comparing various agent architectures and LLM backbones. It acknowledges the rise of applications like HuggingGPT, Generative Agents, WebGPT, AutoGPT, BabyAGI, and Langchain, and the potential of aligning the optimal architecture of agents with tasks and the corresponding LLM backbone. The paper also introduces the 'Tool Agent' concept and the use of LLMs to enhance their capabilities and solve complex tasks.
+The paper systematically investigates LLM-augmented Autonomous Agents (LAAs), comparing various agent architectures and LLM backbones. It acknowledges the rise of applications like HuggingGPT, AutoGPT, BabyAGI, and frameworks like Langchain, and the potential of aligning the optimal architecture of agents with tasks and the corresponding LLM backbone. The paper explores the improvements that can be achieved by combining multiple specialized agents and how to manage multiple agents. 
 
 ### Approach
 
-The authors introduce a novel strategy, BOLAA, to manage multiple LAAs, each focusing on a specific type of action, with a controller overseeing their communication. The controller constructs the message for the selected LAA and builds the communication, then parses the response to an executable action and interacts with the environment. The paper evaluates the effectiveness of LAAs in decision-making and multi-step reasoning environments, and advocates for a deeper understanding of the effectiveness of existing LLMs in LAAs. It references methods such as Chain-of-Thoughts (CoT) and ReAct for deconstructing complex tasks and fostering interactive engagement with the environment. The paper also explores the use of environment rewards to enhance agent behaviors, as seen in Self-refine, REX, RAP, Reflexion, and Retroformer. Additionally, it presents the LAA architectures for Zeroshot-LAA (ZS-LAA), ZeroshotThink LAA (ZST-LAA), ReAct LAA, and PlanAct LAA, each with its own interaction strategy and unique features.
+The paper discusses 5 different architectures for _solo agents_ and the new architecture introduced in the paper BOLAA as a multi-agent architecture.
+
+#### Single Agent Architectures
+
+![Solo agent architectures](./images/bolaa-solo-archs.png)
+
+- **Zeroshot LAA (ZS-LAA)**: This minimum LAA architecture directly extends LLM to generate actions using zeroshot prompts, allowing easy generalization to new environments without examples. It appends observations to memory and generates feasible actions. Compared to other architectures, ZS-LAA lacks the CoT reasoning ability and fewshot examples.
+
+- **ZeroshotThink LAA (ZST-LAA)**: An extension of ZS-LAA, ZST-LAA includes a self-think flow for Chain-of-Thought reasoning in action generation, useful for reasoning tasks. It collects observations, stores thoughts in memory, and employs zero-shot think prompts. Compared to ZS-LAA, ZST-LAA introduces CoT reasoning but lacks fewshot examples.
+
+- **ReAct LAA**: Building upon ZST-LAA, ReAct LAA uses fewshot examples in the prompt layer to enhance LLM's action generation ability and environment interaction. However, the limited context length poses a drawback as it restricts available token spaces after using fewshot examples. It introduces in-context learning but has token space limitations.
+
+- **PlanAct LAA**: This architecture focuses on planning ability by generating a task plan before interacting with the environment. It employs a planning prompt in a fewshot manner to enable LAA to generate plans based on previous successful ones. It differs from ZS-LAA in planning and prompt aspects, emphasizing pre-interaction planning.
+
+- **PlanReAct LAA**: An extension of PlanAct LAA, PlanReAct LAA adds self-think flow for CoT ability, enhancing reasoning during planning. It combines planning with self-think, allowing the agent to plan before observation and think in-between action generations. Compared to PlanAct LAA, PlanReAct LAA introduces CoT reasoning into planning.
+
+#### BOLAA
+
+![BOLAA architecture](./images/bolaa.png)
+
+The authors propose a new strategy, BOLAA, for managing multiple LAAs, where each agent specializes in a particular action and a controller oversees communication. The controller selects the most relevant LLAM and constructs the message for the selected LAA and establishes communication. After receiving the response from the labor LAA, the controller parses it into an executable action and then interacts with the environment. The work LAAs can also be designed as think/plan agents.
 
 ### Results
 
@@ -31,7 +50,3 @@ The paper underscores the importance of selecting optimal LLMs from both efficac
 ### Conclusion
 
 The paper concludes by emphasizing the need for further research into orchestrating multiple agents and the impacts of such orchestration. It suggests that as task complexity increases, coordinating multiple agents to complete a single task may be more efficient. The paper's contributions include the development of six different LAA agent architectures and extensive experiments on decision-making web navigation and knowledge reasoning task environments. It also highlights the importance of incorporating feedback mechanisms, such as environment rewards, to enhance agent behaviors. The superiority of BOLAA indicates that orchestrating multiple smaller-sized LAAs is a better choice if the computing resources are limited. This further exemplifies the potential for fine-tuning multiple smaller-sized specialised LAAs rather than fine-tuning one large generalized LAA. Pairing the LLM with the optimal LAA architecture is crucial. For example, Llama-2-13b performs best under PlanAct LAA arch while Llama-2-70b performs best under the BOLAA arch. Also, Longchat-13b-16K performs best when using PlanAct and PlanReAct, which may indicate the extraordinary planning ability of longchat-13b-16k models. Increasing the context length alone may not necessarily improve the LAA performances. For example, when comparing longchat-13b-16k with llama-2-13b models, the latter yields better performances though with less context length. The paper also highlights that a powerful LLM can generalize under the zeroshot LAA arch, and that the best performance of OpenAI API-based models are actually under ZS and ZST arch. This indicates the great potential of developing a generic LAA with powerful LLM, and that using only a ZS LAA can already achieve comparable or even better performances than LAA arch with additional Plan or Self-think flow. However, for other less powerful LLMs, fewshot prompts are necessary for LAAs. The paper also identifies the challenge of designing BOLAA architecture for environments with compounding actions and suggests future exploration of harnessing LLMs in the controller for fully autonomous selection and communication with labor agents.
-
-## Implications/Learnings for GPT4Hana
-
-...

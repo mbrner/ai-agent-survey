@@ -36,21 +36,23 @@ Since LLM-as-Agent requires LLMs’ strong reasoning ability, Chain-of-Thought (
   - _Tasks_: Select, insert, or update queries
   - _Size_: 60
   - _Metrics_: Success Rate
-- c) **Knowledge Graph (KG)**:  In the context of engaging with a knowledge graph, the intelligent agent must demonstrate proficiency in comprehending intricate natural language, deconstructing intricate tasks into manageable steps, formulating strategic plans, and adapting flexibly as required. This task is characterized by a partially observable environment. All KG examples are constructed for the FREEBASE knowledge graph.
+- c) **Knowledge Graph (KG)**: In the context of engaging with a knowledge graph, the intelligent agent must demonstrate proficiency in comprehending intricate natural language, deconstructing intricate tasks into manageable steps, formulating strategic plans, and adapting flexibly as required. This task is characterized by a partially observable environment. All KG examples are constructed for the FREEBASE knowledge graph.
   - _Example consists of_: an input question, topic entities, action sequence, gold answers
   - _Tasks_: Select, insert, or update queries
   - _Size_: 500
   - _Metrics_: F1 score (predicted answers compared with gold answers), Exact Match (set of predicted answer exactly equal to gold answers), Executability (1 if the action sequence produces an answer)
-- d) **Digital Card Game (DCG)**:  In the context of engaging with a knowledge graph, the intelligent agent must demonstrate proficiency in comprehending intricate natural language, deconstructing intricate tasks into manageable steps, formulating strategic plans, and adapting flexibly as required. This task is characterized by a partially observable environment. All KG examples are constructed for the FREEBASE knowledge graph.
-  - _Example consists of_: an input question, topic entities, action sequence, gold answers
-  - _Tasks_: Select, insert, or update queries
-  - _Size_: 500
-  - _Metrics_: F1 score (predicted answers compared with gold answers), Exact Match (set of predicted answer exactly equal to gold answers), Executability (1 if the action sequence produces an answer)
-- e)
+- d) **Digital Card Game (DCG)**: Environment to test the agent's strategy and planning in a turn-based card game. The agent acts as a player managing a team of fishes with different talents to battle against another team (controlled by our baseline agent).
+  - _Basic Rules_: Two-player battle game where each player controls a team of four pet fishes (cards) with unique abilities. Players take turns asserting the hidden identities of their opponent's fishes, aiming to reveal and damage them, while strategically using their fishes' active and passive abilities to secure victory by having more surviving fishes. An agent will be immediately deemed defeated if it fails to output legal actions within 5 attempts. 
+  - _Metrics_: Full Play (round completion rate), Try Times (average number of illegal actions), Takedown (average number of defeated fish), Total DMG (total damage inflicted), Win Rate
+- e) **Lateral Thinking Puzzles (LTP)**: The puzzle starts with a short story and the agent has to guess what happened by asking yes/no questions. The agents play in the role of the solver.
+  - _Example consists of_: riddle/story, answer/solution
+  - _Tasks_: Guess the solution
+  - _Metrics_: Single Game Accuracy (proportion of rounds in which the agent approaches the truth), Round Effificiency (How fast the agents can guess out the truth), Query Relevance (Relevance between model’s questions and the truth), Game Progress (Proportion of groundtruth points reached by the agent)
 - f)
 - g)
 - h)
 
+![AgentBench Environments](./images/agent-bench-env-overview.png)
 
 AgentBench is the first systematic benchmark to evaluate LLM-as-Agent across a wide array of real-world challenges and 8 distinct environments. A significant addition is the ALFWorld benchmark, which mimics household scenarios and requires the agent to break down complex high-level targets into a sequence of straightforward actions. The agent receives environment feedback after each step, allowing it to adapt the plan dynamically. The benchmark also includes a digital card game (DCG) environment, adapted from a simplified DCG system—Aquawar—from the 2021 Tsinghua University Agent Competition. In Aquawar, the agent acts as a player managing a team of fishes with different talents to battle against another team in a turn-based form, testing the model's understanding of game rules, operating logic, and strategic decision-making abilities. The game rules are simplified and include four types of pet fish, each with unique active and passive skills. The Webshop environment simulates an online shopping experience, with the agent interacting with a database of about a million products scraped from amazon.com. The evaluation setup employs a 1-shot evaluation setting, with the model's output assessed using the BLEU metric for similarity to valid action options. The evaluation process is divided into two parts: Initialization, where the task is described to the model along with a successful example, and Interaction, where the model generates thoughts and actions based on feedback and environment information. The Webshop environment also includes a reward function that maps the similarity of the attributes of the expected and actual bought product to a number between 0 and 1. The AgentBench design carefully balances evaluation comprehensiveness and efficiency, and the toolkit is designed to interact only with APIs, simplifying the process for LLMs that want to test on AgentBench.
 

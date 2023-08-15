@@ -24,6 +24,8 @@ Large Language Models (LLMs) such as GPT-4 have shown impressive abilities in un
 
 Since LLM-as-Agent requires LLMs’ strong reasoning ability, Chain-of-Thought (CoT), which has been considered a de facto strategy in related evaluation together with actions, is also adopted in AgentBench. Despite many improved strategies were introduced, the authors evaluate LLMs with the most primitive CoT in AgentBench, as it reflects the most practical public user experience without multiple trails and repeated generation.
 
+#### Environments
+
 ![AgentBench Environments](./images/agent-bench-envs.png)
 
 - a) **Operating System (OS)**: Evaluation of LLMs in genuine OS’ interactive bash environments on human questions with deterministic answers or series of operations for practical goals
@@ -48,9 +50,22 @@ Since LLM-as-Agent requires LLMs’ strong reasoning ability, Chain-of-Thought (
   - _Example consists of_: riddle/story, answer/solution
   - _Tasks_: Guess the solution
   - _Metrics_: Single Game Accuracy (proportion of rounds in which the agent approaches the truth), Round Effificiency (How fast the agents can guess out the truth), Query Relevance (Relevance between model’s questions and the truth), Game Progress (Proportion of groundtruth points reached by the agent)
-- f)
-- g)
-- h)
+- f) **House-Holding (Alfworld)**: ALFWorld is a benchmark with text-based household scenarios, where agents break down complex objectives into simple actions, receiving feedback from a simulation environment after each step to dynamically adapt their plan.
+  - _Example consists of_: description household environment, objective, simulation environment
+  - _Tasks_: Achieve the objective through a series of actions
+  - _Size_: 134
+  - _Metrics_: Success Rate
+- g) **Web Shopping (WebShop)**: Evaluates agents' reasoning and decision-making abilities in online shopping scenarios. Agents navigate a simulated e-commerce website, searching, viewing, and choosing items based on textual instructions. The evaluation involves autonomous interaction and adaptation within the simulated web shop.
+  - _Example consists of_: A goal along with expected attributes
+  - _Tasks_: Selecting products through simulated online shopping interactions
+  - _Size_: 500
+  - _Metrics_: Matching reward (TextMatch, attributes, options, price, for chosen products based on expected attributes and user goals)
+- h) **Web Browsing (Mind2Web)**: Mind2Web introduces a recently developed benchmark for training and evaluating web agents that can perform complex tasks across various website domains. It assesses agents' ability to interpret high-level user instructions and execute specific web interactions, such as clicking, typing, and selecting options, across diverse domains. During evaluation, a separate model ranks HTML elements, followed by a multi-choice QA for the agent to select the correct element, including specifying arguments for type and select option operations.
+  - _Example consists of_: high-level goal, reference action sequence, webpage information as annotated HTML and previous interaction trajectory 
+  - _Tasks_: Executing intricate tasks on websites, involving actions like clicking, typing, and selecting
+  - _Size_: Cross Domain test set with 912 tasks from 73 websites
+  - _Metrics_: Element Accuracy, Action F1 (Type and Select Option specific), Step Success Rate, Task Success Rate, measuring accuracy and success in various actions and task steps within web interactions.
+
 
 ![AgentBench Environments](./images/agent-bench-env-overview.png)
 

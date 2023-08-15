@@ -55,7 +55,7 @@ The BOLAA architecture consistently outperforms other LAA architectures in the W
 
 **HotPotQA** with Wikipedia API tests LLAs' multi-step planning, comprehension, and information retrieval skills through complex multi-hop question-answering tasks, aiding the advancement of augmented language agents by assessing knowledge reasoning abilities using actions like SEARCH, LOOKUP, and FINISH. The authors argue since the available search, lookup and finish operations are all related to knowledge reasoning in this environment and hard to separate, they therefore leave the BOLAA arch for future work and only compare the performance on other agent arch.
 
-![Results HotPotQA](./images/bolaa-result-tab1.png)
+![Results HotPotQA](./images/bolaa-result-tab3.png)
 
 In the HotPotQA environment, the ReAct agent architecture achieves the best performances, indicating that fewshot prompts are necessary to enable action generation and reasoning ability for LAAs. The paper also notes that the planning flow of LAA hinders performance in knowledge reasoning tasks, as these tasks require contextualized information for reasoning, which the planning flow, executed ahead of interactions, tends to hallucinate. The results show that model size is more important than context length for knowledge reasoning tasks, with larger models performing better.
 

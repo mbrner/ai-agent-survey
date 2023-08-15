@@ -4,7 +4,11 @@
 
 **Link**: [Paper](http://arxiv.org/pdf/2305.10601v1)
 
-**Authors**: Shunyu Yao, Dian Yu, Jeffrey Zhao, Izhak Shafran, Thomas L. Griffiths, Yuan Cao, Karthik Narasimhan
+**Authors**: Shunyu Yao[^1], Dian Yu[^2], Jeffrey Zhao[^2], Izhak Shafran[^2], Thomas L. Griffiths[^1], Yuan Cao[^2], Karthik Narasimhan[^1]
+
+[^1]: Princeton University
+[^2]: Google DeepMind
+
 
 ## Summary
 

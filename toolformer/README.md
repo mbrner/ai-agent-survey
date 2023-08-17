@@ -58,12 +58,3 @@ The downstream tasks evaluate are: LAMA (complete a short statement with a a mis
 ### Conclusion
 
 We have introduced *Toolformer*, a language model that learns in a self-supervised way how to use different tools such as search engines, calculators, and translation systems via simple API calls. This is done by finetuning on a large number of sampled API calls that are filtered based on whether they reduce perplexity on future tokens. *Toolformer* considerably improves zero-shot performance of a 6.7B parameter GPT-J model, enabling it to even outperform a much larger GPT-3 model on a range of different downstream tasks.
-
-
-## Rating
-
-- **Relevance (1-5)**: Does the paper's topic align with your areas of interest or research?
-- **Novelty (1-5)**: How novel is the approach or result presented in the paper?
-- **Clarity (1-5)**: How well is the paper written? Is it easy to understand the concepts and methodologies?
-- **Depth of Research (1-5)**: Is the paper thorough in its treatment of the subject matter, including background research and analysis?
-- **Practicality (1-5)**: How practical or applicable are the findings or methodologies presented in the paper?
